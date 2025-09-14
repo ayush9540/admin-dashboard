@@ -17,7 +17,7 @@ https://ayushdashboardproject.netlify.app/
 2. Install dependencies:
    `npm install`
 3. Start development server:
-   `npm start`
+   `npm run dev`
 
 ## ✅ Features
 - Material-UI for UI components
