@@ -13,7 +13,7 @@ https://ayushdashboardproject.netlify.app/
 
 ## 🚀 How to run locally
 1. Clone the repo:
-   `git clone https://github.com/yourusername/admin-dashboard.git`
+   `git clone https://github.com/ayush9540/admin-dashboard.git`
 2. Install dependencies:
    `npm install`
 3. Start development server:
