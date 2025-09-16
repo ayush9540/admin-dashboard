@@ -17,9 +17,10 @@
 .loginForm-container .form-container {
   background-color: white;
   padding: 20px;
+  padding-bottom: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 320px;
+  width: 350px;
 }
 
 .loginForm-container .form-toggle {
@@ -79,4 +80,5 @@
 .loginForm-container .form p {
   text-align: center;
   margin-top: 15px;
+  margin-bottom: 0px;
 }

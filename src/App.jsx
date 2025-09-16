@@ -10,23 +10,30 @@ import { useState } from "react";
 import LoginForm from "./components/login_form/LoginForm";
 
 function App() {
-
   const authKey = "isLoggedIn";
 
   const [mode, setMode] = useState("light");
-  const [isloggedIn, setIsLoggedIn] = useState(
+  const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem(authKey) === "true"
   );
 
-  const handleLogin = () => {
-    localStorage.setItem(authKey, "true");
-    setIsLoggedIn(true)
-  }
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("currentUser")) || null
+  );
 
-   const handleLogout= () =>  {
-    localStorage.removeItem(authKey);
-    setIsLoggedIn(false)
-  }
+  const handleLogin = (userData) => {
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("currentUser", JSON.stringify(userData));
+    setIsLoggedIn(true);
+    setUser(userData);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("currentUser");
+    setIsLoggedIn(false);
+    setUser(null);
+  };
 
   const theme = createTheme({
     palette: {
@@ -46,7 +53,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className={`App ${mode}-mode`}>
-        {isloggedIn ? (
+        {isLoggedIn ? (
           <>
             <div style={{ width: "100%" }}>
               <CssBaseline />
@@ -60,17 +67,19 @@ function App() {
                 </IconButton>
               </div>
             </div>
+
             <div className={`app-glass ${mode}-mode`}>
               <aside>
-                <Sidebar onLogout= {handleLogout}/>
+                <Sidebar onLogout={handleLogout} />
               </aside>
               <main className="main-content">
+                <h1>{`Welcome, ${user?.name.charAt(0).toUpperCase() + user?.name.slice(1) + " !" || "User"}`}</h1>
                 <div className="dashboard-scrollable">
                   <MainDashboard />
                 </div>
               </main>
               <aside>
-                <RightPanel/>
+                <RightPanel />
               </aside>
             </div>
           </>

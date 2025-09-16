@@ -3,6 +3,7 @@ A responsive Admin Dashboard built using React.js, featuring:
 
 - Login Authentication
 - Complete responsive dashboard
+- Material UI Theme (Light & Dark)
 - Material UI Table
 - Interactive Charts (Apex Charts, IconScout)
 - Smooth Animations (Framer Motion)

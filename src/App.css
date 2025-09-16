@@ -93,4 +93,7 @@ body {
   .bars.dark-mode {
     background: #181818;
   }
+  .main-content h1 {
+    margin: 0px;
+  }
 }
