@@ -19,13 +19,12 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 370px;
+  width: 320px;
 }
 
 .loginForm-container .form-toggle {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 
 .loginForm-container .form-toggle button {
@@ -54,10 +53,11 @@
 }
 
 .loginForm-container .form input {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px 10px;
+  margin-bottom: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .loginForm-container .form button {
@@ -72,7 +72,7 @@
 .loginForm-container .form a {
   color: #007bff;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   text-align: right;
 }
 

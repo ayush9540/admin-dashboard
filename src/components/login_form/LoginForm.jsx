@@ -49,7 +49,7 @@ const LoginForm = ({ onLogin }) => {
             {isLogin ? (
               <>
                 <div className="form">
-                  <h2>Login Form</h2>
+                  <h1>Login Form</h1>
                   <input
                     type="email"
                     placeholder="Email"
