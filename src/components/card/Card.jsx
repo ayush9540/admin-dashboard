@@ -89,7 +89,7 @@ const ExpandedCard = ({ param, setExpanded }) => {
       transition={{ layout: { duration: 0.5, type: "spring" } }}
     >
       <div
-        style={{ alignSelf: "flex-end", cursor: "pointer", color: "#fff" }}
+        style={{ alignSelf: "flex-end", cursor: "pointer", color: "#fff", position: "absolute", top: "5px", right: "5px" }}
         onClick={setExpanded}
       >
         <CloseIcon />

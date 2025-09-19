@@ -4,7 +4,6 @@
   flex-shrink: 0;
   position: sticky;
   top: 0;
-  height: 100vh;
 }
 
 .logo {
@@ -101,7 +100,7 @@
     background: #ffe0e0;
     padding: 10px;
     border-radius: 10px;
-    z-index: 9;
+    z-index: 999;
     transition: 300ms all ease;
   }
   .close {

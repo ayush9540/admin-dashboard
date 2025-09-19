@@ -60,8 +60,8 @@ const Sidebar = ({onLogout}) => {
               </div>
             );
           })}
-          <div onClick={onLogout} className="menu-item" style={{position: "absolute", left: 0, bottom: 0}}>
-            <ExitToAppIcon/> Logout
+          <div onClick={onLogout} className="menu-item" style={{marginTop: "3.5rem"}}>
+            <ExitToAppIcon/> <span>Logout</span>
           </div>
         </div>
       </motion.div>

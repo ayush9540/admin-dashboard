@@ -11,6 +11,7 @@ A responsive Admin Dashboard built using React.js, featuring:
 
 ## 🌐 Live Demo
 https://ayushdashboardproject.netlify.app/
+Access: Create your own test account using the Sign Up option (no real email required).
 
 ## 🚀 How to run locally
 1. Clone the repo:
@@ -25,10 +26,6 @@ https://ayushdashboardproject.netlify.app/
 - Mobile Responsive
 - Login Form validation with React Hook Form
 - Charts with Apex Charts & IconScout
-
-## 🔐 Login Credentials (for demo)
-Username: ayush@demo.com  
-Password: admin
 
 ---
 

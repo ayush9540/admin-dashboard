@@ -6,12 +6,10 @@
     justify-content: space-evenly;
     position: sticky;
     top: 0;
-    height: 100vh;
 }
 @media screen and (max-width: 1200px) {
     .right-panel{
         justify-content: flex-start;
-        margin-top: 3rem;
     }
 }
 

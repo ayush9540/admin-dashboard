@@ -43,6 +43,7 @@ body {
   margin: 2rem;
   margin-top: 0rem;
   padding: 15px 0px 25px 0px;
+  max-width: 1750px;
 }
 .dashboard-scrollable {
   flex: 1;

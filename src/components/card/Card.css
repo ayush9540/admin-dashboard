@@ -53,7 +53,6 @@
 .expanded-card{
   position: absolute;
   width: 60%;
-  height: 70vh;
   z-index: 9;
   left: 13rem;
   border-radius: 1rem;
@@ -68,25 +67,67 @@
   font-size: 26px;
   font-weight: bold;
   text-shadow: 0px 0px 15px white;
+  position: relative;
+  bottom: 22%;
 }
 .expanded-card > span:nth-of-type(2) {
   color: rgb(236, 236, 236);
   font-size: 15px;
+  position: relative;
+  top: 22%;
 }
 .chart-container {
-  width: 65%;
+  width: 90%;
+  position: absolute;
 }
-@media screen and (max-width: 1200px) {
-  .expanded-card{
-    top: 2rem;
-    height: 45vh;
-    left: 6rem;
-  }
-}
+
+/* Media Query */
+
 @media screen and (max-width: 768px) {
   .expanded-card{
+    top: 7rem;
+    left: 3%;
+    width: 94%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .expanded-card{
+    height: 15%;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 767px) {
+  .expanded-card{
+    height: 20%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .expanded-card{
+    width: 60%;
+    height: 20%;
+    left: 6rem;
     top: 8rem;
-    left: 25px;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .expanded-card{
+    height: 25%;
+    left: 7rem;
+    top: 8rem;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1399px) {
+  .expanded-card{
+    height: 35%;
+    left: 12rem;
+    top: 6rem;
+  }
+  .chart-container {
     width: 80%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .expanded-card{
+    height: 50%;
+    left: 12rem;
   }
 }
