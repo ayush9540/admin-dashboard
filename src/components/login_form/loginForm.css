@@ -84,8 +84,12 @@
   margin-bottom: 0px;
 }
 
-@media only screen and (max-device-width: 767px) and (orientation: portrait) {
+.App.notLogged-in .loginForm-container {
+  height: 100vh;
+}
+
+@media only screen and (max-width: 1023px) and (orientation: landscape) {
   .loginForm-container {
-    height: 100vh;
+    height: auto !important;
   }
 }
