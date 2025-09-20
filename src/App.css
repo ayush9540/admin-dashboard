@@ -19,11 +19,16 @@ body {
 .App {
   background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Inter", sans-serif;
   flex-direction: column;
+}
+.App.notLogged-in {
+  display: block;
+}
+.App.logged-in {
+  display: flex;
 }
 .main-content {
   flex: 1;
@@ -63,6 +68,14 @@ body {
   .app-glass {
     grid-template-columns: 1fr;
   }
+  .sidebar.dark-mode,
+  .bars.dark-mode {
+    background: #181818;
+  }
+  .main-content h1 {
+    margin: 0px;
+    margin-top: 15px;
+  }
 }
 
 /* Theme Light */
@@ -88,13 +101,4 @@ body {
 }
 .status.dark-mode {
   color: #fff !important;
-}
-@media screen and (max-width: 768px) {
-  .sidebar.dark-mode,
-  .bars.dark-mode {
-    background: #181818;
-  }
-  .main-content h1 {
-    margin: 0px;
-  }
 }

@@ -22,7 +22,6 @@
         padding-right: 2rem;
     }
     .right-panel>div{
-        display: flex;
         flex-direction: column;
         align-items: center;
     }

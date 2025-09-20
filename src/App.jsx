@@ -52,7 +52,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={`App ${mode}-mode`}>
+      <div className={`App ${mode}-mode ${isLoggedIn ? "logged-in" : "notLogged-in"}`}>
         {isLoggedIn ? (
           <>
             <div style={{ width: "100%" }}>
