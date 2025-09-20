@@ -123,7 +123,7 @@ const LoginForm = ({ onLogin }) => {
             </form>
           ) : (
             <form className="form" onSubmit={handleSignUpSubmit}>
-              <h2>SignUp Form</h2>
+              <h1>SignUp Form</h1>
               <input
                 type="email"
                 placeholder="Email"
