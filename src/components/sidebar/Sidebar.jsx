@@ -4,6 +4,7 @@ import { sidebarData } from "../../data/data";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material";
 
@@ -48,16 +49,17 @@ const Sidebar = ({onLogout}) => {
         <div className="menu">
           {sidebarData.map((item, index) => {
             return (
-              <div
+              <NavLink
                 onClick={() => setSelected(index)}
                 key={index}
+                to={item.path}
                 className={
-                  selected === index ? "menu-item active" : "menu-item"
+                  selected === index ? "menu-item this-active" : "menu-item"
                 }
               >
                 <item.icon />
                 <span>{item.heading}</span>
-              </div>
+              </NavLink>
             );
           })}
           <div onClick={onLogout} className="menu-item" style={{marginTop: "3.5rem"}}>

@@ -7,7 +7,6 @@
 @media screen and (max-width: 1200px) {
     .main-dash {
         justify-content:flex-start;
-        margin-top: 2rem;
     }
 }
 
@@ -15,5 +14,8 @@
 {
     .main-dash {
         align-items: center;
+    }
+    .dashboard-scrollable {
+        margin-top: 2rem;
     }
 }

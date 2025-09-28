@@ -8,7 +8,8 @@
     padding: 1rem;
 }
 .compact-card:hover {
-    box-shadow: none !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 300ms;
 }
 .CircularProgressbar-path {
     stroke: #fff !important;
@@ -103,21 +104,21 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .expanded-card{
     width: 60%;
-    height: 20%;
+    height: 22%;
     left: 6rem;
     top: 8rem;
   }
 }
 @media screen and (min-width: 1024px) and (max-width: 1200px) {
   .expanded-card{
-    height: 25%;
+    height: 27%;
     left: 7rem;
     top: 8rem;
   }
 }
 @media screen and (min-width: 1201px) and (max-width: 1399px) {
   .expanded-card{
-    height: 35%;
+    height: 37%;
     left: 12rem;
     top: 6rem;
   }

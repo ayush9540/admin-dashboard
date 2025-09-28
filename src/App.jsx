@@ -1,4 +1,5 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
 import MainDashboard from "./components/main-dash/MainDashboard";
 import RightPanel from "./components/right-panel/RightPanel";
@@ -8,6 +9,10 @@ import IconButton from "@mui/material/IconButton";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { useState } from "react";
 import LoginForm from "./components/login_form/LoginForm";
+import Customers from "./components/customer-crud/Customers";
+import Create from "./components/customer-crud/Create";
+import Update from "./components/customer-crud/Update";
+import Read from "./components/customer-crud/Read";
 
 function App() {
   const authKey = "isLoggedIn";
@@ -52,41 +57,57 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={`App ${mode}-mode ${isLoggedIn ? "logged-in" : "notLogged-in"}`}>
-        {isLoggedIn ? (
-          <>
-            <div style={{ width: "100%" }}>
-              <CssBaseline />
+      <BrowserRouter>
+        <div
+          className={`App ${mode}-mode ${
+            isLoggedIn ? "logged-in" : "notLogged-in"
+          }`}
+        >
+          {isLoggedIn ? (
+            <>
+              <div style={{ width: "100%" }}>
+                <CssBaseline />
 
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <IconButton
-                  onClick={() => setMode(mode === "light" ? "dark" : "light")}
-                  color="inherit"
-                >
-                  {mode === "light" ? <Brightness4 /> : <Brightness7 />}
-                </IconButton>
-              </div>
-            </div>
-
-            <div className={`app-glass ${mode}-mode`}>
-              <aside>
-                <Sidebar onLogout={handleLogout} />
-              </aside>
-              <main className="main-content">
-                <h1>{`Welcome, ${user?.name.charAt(0).toUpperCase() + user?.name.slice(1) + " !" || "User"}`}</h1>
-                <div className="dashboard-scrollable">
-                  <MainDashboard />
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <IconButton
+                    onClick={() => setMode(mode === "light" ? "dark" : "light")}
+                    color="inherit"
+                  >
+                    {mode === "light" ? <Brightness4 /> : <Brightness7 />}
+                  </IconButton>
                 </div>
-              </main>
-              <aside>
-                <RightPanel />
-              </aside>
-            </div>
-          </>
-        ) : (
-          <LoginForm onLogin={handleLogin} />
-        )}
-      </div>
+              </div>
+
+              <div className={`app-glass ${mode}-mode`}>
+                <aside>
+                  <Sidebar onLogout={handleLogout} />
+                </aside>
+                <main className="main-content">
+                  {/* <h1>{`Welcome, ${
+                    user?.name.charAt(0).toUpperCase() +
+                      user?.name.slice(1) +
+                      " !" || "User"
+                  }`}</h1> */}
+                  <div className="dashboard-scrollable">
+                    <Routes>
+                      <Route path="/" element={<MainDashboard />} />
+                      <Route path="/customers" element={<Customers />} />
+                      <Route path="/create" element={<Create />} />
+                      <Route path="/update" element={<Update />} />
+                      <Route path="/read" element={<Read />} />
+                    </Routes>
+                  </div>
+                </main>
+                <aside>
+                  <RightPanel />
+                </aside>
+              </div>
+            </>
+          ) : (
+            <LoginForm onLogin={handleLogin} />
+          )}
+        </div>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

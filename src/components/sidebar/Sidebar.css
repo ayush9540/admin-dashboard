@@ -46,17 +46,26 @@
 .menu-item:hover {
   cursor: pointer;
 }
-.active {
+.this-active {
   background: var(--activeItem);
   margin-left: 0px;
 }
-.sidebar .active::before {
+.sidebar .this-active::before {
   content: "";
   width: 8px;
   height: 100%;
   background: var(--pink);
   margin-right: calc(1rem - 8px);
 }
+.menu-item {
+  color: var(--mui-palette-text-primary);
+  text-decoration: none;
+}
+.menu-item.active {
+  color: var(--mui-palette-primary-main);
+  text-decoration: none;
+}
+
 .bars {
   display: none;
 }

@@ -102,3 +102,14 @@ body {
 .status.dark-mode {
   color: #fff !important;
 }
+
+/* utility */
+.text-center {
+  text-align: center;
+}
+.p-0 {
+  padding: 10px;
+}
+.alert-danger {
+  background-color: #f8d7da;
+}

@@ -1,0 +1,11 @@
+#crud_form div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#crud_form div label {
+    width: 65px;
+}
+#read_form .table td, #read_form .table th {
+    vertical-align: middle;
+}

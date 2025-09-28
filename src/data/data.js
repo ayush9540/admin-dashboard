@@ -14,6 +14,7 @@ export const sidebarData = [
   {
     icon: HomeRoundedIcon,
     heading: "Dashboard",
+    path: "/"
   },
   {
     icon: ContentPasteIcon,
@@ -22,6 +23,7 @@ export const sidebarData = [
   {
     icon: PeopleAltIcon,
     heading: "Customers",
+    path: "/read"
   },
   {
     icon: Inventory2Icon,
@@ -38,8 +40,7 @@ export const cardsData = [
   {
     title: "Sales",
     color: {
-      backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
-      boxShadow: "0px 10px 20px 0px #e0c6f5",
+      backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)"
     },
     barValue: 70,
     value: "25,970",
@@ -54,8 +55,7 @@ export const cardsData = [
   {
     title: "Revenue",
     color: {
-      backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
-      boxShadow: "0px 10px 20px 0px #FDC0C7",
+      backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)"
     },
     barValue: 80,
     value: "14,270",
@@ -71,8 +71,7 @@ export const cardsData = [
     title: "Expenses",
     color: {
       backGround:
-        "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
-      boxShadow: "0px 10px 20px 0px #F9D59B",
+        "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)"
     },
     barValue: 60,
     value: "4,270",

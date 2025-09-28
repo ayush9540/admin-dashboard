@@ -5,76 +5,142 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import './Table.css';
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
-
-function createData(name, trackingId, date, status) {
-  return { name, trackingId, date, status };
-}
-
-const rows = [
-  createData("Lasania Chiken Fri", 18908424, "2 March 2022", "Approved"),
-  createData("Big Baza Bang ", 18908424, "2 March 2022", "Pending"),
-  createData("Mouth Freshner", 18908424, "2 March 2022", "Approved"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-];
+import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import "./Table.css";
 
 const makeStyles = (status) => {
-    if(status === "Approved") {
-            return {
-                background: 'rgb(145 254 159 / 47%)',
-                color: 'green',
-            }
-        }
-        else if(status === "Pending") {
-            return {
-                background: '#ffadad8f',
-                color: 'red',
-            }
-        }
-        else{
-            return {
-                background: '#59bfff',
-                color: 'white',
-            }
-        }
-}
+  if (status === "Approved") {
+    return { background: "rgb(145 254 159 / 47%)", color: "green" };
+  } else if (status === "Pending") {
+    return { background: "#ffadad8f", color: "red" };
+  } else {
+    return { background: "#59bfff", color: "white" };
+  }
+};
 
-export default function BasicTable({title}) {
+function BasicTable({
+  title,
+  rows,
+  onEdit,
+  onDelete,
+  addButton = false,
+  addButtonLink = "",
+}) {
   const theme = useTheme();
   const mode = theme.palette.mode;
-  
+
   return (
     <div className="table">
-      <h3>{title}</h3>
-      <TableContainer component={Paper}
-        style={{boxShadow: '0px 13px 20px 0 #80808029'}}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          p: 1,
+          borderTopLeftRadius: 12,
+          borderTopRightRadius: 12,
+          bgcolor:
+            theme.palette.mode === "light"
+              ? theme.palette.grey[300]
+              : theme.palette.grey[800],
+        }}
       >
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ color: theme.palette.text.primary, fontWeight: 600 }}
+          >
+            {title}
+          </Typography>
+        </Box>
+
+        <Paper
+          elevation={3}
+          sx={{
+            borderRadius: 3,
+            overflow: "hidden",
+            bgcolor: "background.paper",
+            position: "relative",
+          }}
+        >
+          {addButton && addButtonLink && (
+            <Link to={addButtonLink} style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                color="success"
+                size="small"
+                onClick={() => console.log("Add button clicked")}
+              >
+                ADD
+              </Button>
+            </Link>
+          )}
+        </Paper>
+      </Box>
+
+      {/* <h3 style={{ margin: "0", padding: "5px 15px" }}>{title}</h3> */}
+      <TableContainer
+        component={Paper}
+        style={{ boxShadow: "0px 13px 20px 0 #80808029" }}
+      >
+        <Table sx={{ minWidth: 650}}>
           <TableHead>
             <TableRow>
-              <TableCell>Product</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell align="left">Tracking ID</TableCell>
-              <TableCell align="left">Date</TableCell>
+              <TableCell align="left">Age</TableCell>
               <TableCell align="left">Status</TableCell>
-              <TableCell align="left"></TableCell>
+              {(onEdit || onDelete) && (
+                <TableCell align="left">Actions</TableCell>
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">{row.name}</TableCell>
+            {rows.map((row, id) => (
+              <TableRow key={id}>
+                <TableCell>{row.name}</TableCell>
                 <TableCell align="left">{row.trackingId}</TableCell>
-                <TableCell align="left">{row.date}</TableCell>
+                <TableCell align="left">{row.age}</TableCell>
                 <TableCell align="left">
-                    <span className={`status ${mode}-mode`} style={makeStyles(row.status)}>
-                        {row.status}
-                    </span>
+                  <span
+                    className={`status ${mode}-mode`}
+                    style={makeStyles(row.status)}
+                  >
+                    {row.status}
+                  </span>
                 </TableCell>
-                <TableCell align="left" className="details">Detail</TableCell>
+                {(onEdit || onDelete) && (
+                  <TableCell align="left">
+                    {onEdit && (
+                      <Tooltip title="Edit">
+                        <IconButton>
+                          <EditIcon
+                            color="success"
+                            onClick={() => onEdit(row)}
+                          />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                    {onDelete && (
+                      <Tooltip title="Delete">
+                        <IconButton>
+                          <DeleteIcon
+                            color="error"
+                            onClick={() => onDelete(row)}
+                          />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
@@ -83,3 +149,5 @@ export default function BasicTable({title}) {
     </div>
   );
 }
+
+export default BasicTable;

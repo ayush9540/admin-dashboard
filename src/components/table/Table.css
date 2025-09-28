@@ -1,21 +1,31 @@
 .MuiTableRow-root > * {
-  padding: 10px;
+  padding: 10px !important;
 }
 
 .MuiTableRow-root.MuiTableRow-head > * {
   font-weight: bold !important;
 }
-
-.table td,
-th {
-  border: none !important;
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
 }
 
-.table:first-child {
-  border-radius: 0.7rem !important;
+#read_form .table {
+  margin: 0px;
+}
+
+.table {
+  margin: 15px 0px;
+}
+.dark-mode .table tr td, .table th tr{
+  border-bottom: none;
+}
+.light-mode .table tr td, .table th tr{
+  border-bottom: 1px solid rgb(246 243 243);
 }
 .status {
-  padding: 8px;
+  padding: 5px 8px;
   border-radius: 9px;
 }
 
@@ -38,5 +48,11 @@ th {
     flex-direction: column;
     align-items: center;
     width: 90%;
+  }
+  #read_form .table{
+    width: 100%;
+  }
+  .MuiBox-root.css-7wwrgi {
+    width: 100%;
   }
 }
