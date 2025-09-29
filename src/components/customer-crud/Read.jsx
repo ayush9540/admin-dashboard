@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BasicTable from "../table/Table";
-import { Box, Paper, Typography, Stack } from "@mui/material";
+import { Box, Paper, Typography, Alert } from "@mui/material";
 
 const Read = () => {
   const [data, setData] = useState([]);
@@ -76,12 +76,9 @@ const Read = () => {
         >
            
           {showAlert && (
-            <div
-              className="alert-danger alert-dismissible fade show p-0"
-              role="alert"
-            >
+            <Alert severity="error">
               <strong>{deletedUserName}</strong> deleted successfully!
-            </div>
+            </Alert>
           )}
           
           <BasicTable
