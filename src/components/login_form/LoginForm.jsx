@@ -8,13 +8,10 @@ const LoginForm = ({ onLogin }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // 🔹 Login Submit Handler
+  //Login Submit Handler
  const handleLoginSubmit = (e) => {
   e.preventDefault();
-
   const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-  console.log("All Stored Users:", storedUsers);
-
   const matchedUser = storedUsers.find(
     (user) => user.email === emailID && user.password === password
   );
@@ -28,51 +25,39 @@ const LoginForm = ({ onLogin }) => {
   }
 };
 
-
-
-  // 🔹 SignUp Submit Handler
+  //SignUp Submit Handler
   const handleSignUpSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    if (!emailID || !password || !confirmPassword) {
+      alert("Please fill all fields");
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    const newUser = {
+      email: emailID,
+      password,
+      name: emailID.split("@")[0],
+    };
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-  if (!emailID || !password || !confirmPassword) {
-    alert("Please fill all fields");
-    return;
-  }
-
-  if (password !== confirmPassword) {
-    alert("Passwords do not match");
-    return;
-  }
-
-  const newUser = {
-    email: emailID,
-    password,
-    name: emailID.split("@")[0],
-  };
-
-  const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-  // Check if email already exists
-  const userExists = storedUsers.some(user => user.email === emailID);
-  if (userExists) {
-    alert("Email is already registered. Please log in.");
-    return;
-  }
-
-  storedUsers.push(newUser);
-
-  localStorage.setItem("users", JSON.stringify(storedUsers));
-  localStorage.setItem("isLoggedIn", "true");
-  localStorage.setItem("currentUser", JSON.stringify(newUser));
-
-  onLogin(newUser);
-
-  setEmailID("");
-  setPassword("");
-  setConfirmPassword("");
+    // Check if email already exists
+    const userExists = storedUsers.some(user => user.email === emailID);
+    if (userExists) {
+      alert("Email is already registered. Please log in.");
+      return;
+    }
+    storedUsers.push(newUser);
+    localStorage.setItem("users", JSON.stringify(storedUsers));
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+    onLogin(newUser);
+    setEmailID("");
+    setPassword("");
+    setConfirmPassword("");
 };
-
-
 
   return (
     <div className="loginForm-container">
@@ -152,5 +137,4 @@ const LoginForm = ({ onLogin }) => {
     </div>
   );
 };
-
 export default LoginForm;

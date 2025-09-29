@@ -77,7 +77,6 @@ function BasicTable({
                 variant="contained"
                 color="success"
                 size="small"
-                onClick={() => console.log("Add button clicked")}
               >
                 ADD
               </Button>
