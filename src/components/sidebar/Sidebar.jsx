@@ -28,10 +28,10 @@ const Sidebar = ({onLogout}) => {
     <>
       <div
         className={`bars ${mode}-mode`}
-        style={expanded ? { left: "48%" } : { left: "5%" }}
+        style={expanded ? { left: "48%", top: 60, opacity: "1" } : { left: "9px", top: 60, opacity: ".6" }}
         onClick={() => setExpaned(!expanded)}
       >
-        <MenuIcon />
+        <MenuIcon style={{fontSize: "32px"}}/>
       </div>
       <motion.div
         className={`sidebar ${mode}-mode`}

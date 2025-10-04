@@ -12,8 +12,11 @@ import LoginForm from "./components/login_form/LoginForm";
 import Create from "./components/customer-crud/Create";
 import Update from "./components/customer-crud/Update";
 import Read from "./components/customer-crud/Read";
+import useMediaQuery from "./hooks/useMediaQuery";
+import MobilePortal from "./components/sidebar/MobilePortal";
 
 function App() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const authKey = "isLoggedIn";
 
   const [mode, setMode] = useState("light");
@@ -78,9 +81,11 @@ function App() {
               </div>
 
               <div className={`app-glass ${mode}-mode`}>
-                <aside>
-                  <Sidebar onLogout={handleLogout} />
-                </aside>
+                <MobilePortal isMobile={isMobile}>
+                  <aside>
+                      <Sidebar onLogout={handleLogout} />
+                  </aside>
+                </MobilePortal>                              
                 <main className="main-content">
                   {/* <h1>{`Welcome, ${
                     user?.name.charAt(0).toUpperCase() +
