@@ -33,6 +33,23 @@
   color: #00b5ff !important;
 }
 
+#read_form .right-content {
+  display: flex;
+  align-items: center; 
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+#read_form .right-content .search-input .MuiInputBase-input {
+  padding: 4px 12px;
+}
+#read_form .right-content .search-input .MuiInputBase-input:focus-visible{
+  outline: 0 !important;
+}
+#read_form .right-content .search-input .MuiOutlinedInput-root fieldset {
+  border: none;
+}
+
 @media screen and (max-width: 1200px) {
   .table {
     width: 100%;

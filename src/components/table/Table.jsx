@@ -1,20 +1,25 @@
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Box,
+  Typography,
+  Button,
+  IconButton,
+  Tooltip,
+  TableSortLabel,
+  TextField,
+} from "@mui/material";
 import { useTheme } from "@mui/material";
-import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
 import "./Table.css";
+import { useState } from "react";
 
 const makeStyles = (status) => {
   if (status === "Approved") {
@@ -33,9 +38,32 @@ function BasicTable({
   onDelete,
   addButton = false,
   addButtonLink = "",
+  addSearchBox = false,
 }) {
   const theme = useTheme();
   const mode = theme.palette.mode;
+  const [search, setSearch] = useState("");
+  const [order, setOrder] = useState("asc"); // asc | desc
+
+  // Filter Customer based on search
+  const filteredRows = rows.filter((row) =>
+    row.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Sort Customer by Name
+  filteredRows.sort((a, b) => {
+    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return order === "asc" ? -1 : 1;
+    }
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+      return order === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+
+  function handleSort() {
+    setOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+  }
 
   return (
     <div className="table">
@@ -63,6 +91,7 @@ function BasicTable({
         </Box>
 
         <Paper
+          className="right-content"
           elevation={3}
           sx={{
             borderRadius: 3,
@@ -71,13 +100,25 @@ function BasicTable({
             position: "relative",
           }}
         >
+          {addSearchBox && (
+            <div>
+              <TextField
+                variant="outlined"
+                size="small"
+                placeholder="Search Buyer..."
+                value={search}
+                className="search-input"
+                onChange={(e) => setSearch(e.target.value)}
+                sx={{
+                  bgcolor: "background.paper"
+                }}
+              />
+            </div>
+          )}
+
           {addButton && addButtonLink && (
             <Link to={addButtonLink} style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                color="success"
-                size="small"
-              >
+              <Button variant="contained" color="success" size="small">
                 ADD
               </Button>
             </Link>
@@ -93,7 +134,15 @@ function BasicTable({
         <Table sx={{ minWidth: 650}}>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
+              <TableCell sortDirection={order}>
+                <TableSortLabel
+                  active={true}
+                  direction={order}
+                  onClick={handleSort}
+                >
+                  Name
+                </TableSortLabel>
+              </TableCell>
               <TableCell align="left">Tracking ID</TableCell>
               <TableCell align="left">Age</TableCell>
               <TableCell align="left">Status</TableCell>
@@ -103,7 +152,7 @@ function BasicTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, id) => (
+            {filteredRows.map((row, id) => (
               <TableRow key={id}>
                 <TableCell>{row.name}</TableCell>
                 <TableCell align="left">{row.trackingId}</TableCell>

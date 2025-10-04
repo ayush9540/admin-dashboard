@@ -9,7 +9,6 @@ import IconButton from "@mui/material/IconButton";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { useState } from "react";
 import LoginForm from "./components/login_form/LoginForm";
-import Customers from "./components/customer-crud/Customers";
 import Create from "./components/customer-crud/Create";
 import Update from "./components/customer-crud/Update";
 import Read from "./components/customer-crud/Read";
@@ -91,7 +90,6 @@ function App() {
                   <div className="dashboard-scrollable">
                     <Routes>
                       <Route path="/" element={<MainDashboard />} />
-                      <Route path="/customers" element={<Customers />} />
                       <Route path="/create" element={<Create />} />
                       <Route path="/update" element={<Update />} />
                       <Route path="/read" element={<Read />} />

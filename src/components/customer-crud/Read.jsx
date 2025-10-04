@@ -87,6 +87,7 @@ const Read = () => {
             onEdit={handleEditUser}
             onDelete={handleDeleteUser}
             addButton= {true}
+            addSearchBox= {true}
             addButtonLink="/create"
           />
         </Paper>

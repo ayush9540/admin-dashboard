@@ -4,7 +4,7 @@ A responsive Admin Dashboard built using React.js, featuring:
 - Login / SignUp Authentication
 - Complete Responsive Dashboard
 - Material UI Theme (Light & Dark)
-- Material UI Table with API-based CRUD Operations (Create, Read, Update, Delete)
+- Material UI Table with API-based CRUD Operations (Create, Read, Update, Delete), Search & Sort
 - Interactive Charts (Apex Charts, IconScout)
 - Smooth Animations (Framer Motion)
 - Sidebar Navigation
@@ -28,6 +28,7 @@ Access: Create your own test account using the Sign Up option (no real email req
 📊 Charts & Data Visualizations with Apex Charts & IconScout
 ✨ Smooth Animations with Framer Motion
 🔄 API Integration for CRUD operations (fetching & managing customer data)
+🔍 Search & Sort functionality in tables
 📱 Mobile-first responsive design
 🔐 Authentication with validation (login, signup, logout)
 ♻️ Reusable components for scalability
