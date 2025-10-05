@@ -31,15 +31,7 @@ const makeStyles = (status) => {
   }
 };
 
-function BasicTable({
-  title,
-  rows,
-  onEdit,
-  onDelete,
-  addButton = false,
-  addButtonLink = "",
-  addSearchBox = false,
-}) {
+function BasicTable({title, rows, onEdit, onDelete, addButton = false, addButtonLink = "", addSearchBox = false}) {
   const theme = useTheme();
   const mode = theme.palette.mode;
   const [search, setSearch] = useState("");
@@ -81,15 +73,14 @@ function BasicTable({
               : theme.palette.grey[800],
         }}
       >
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Typography
-            variant="subtitle1"
-            sx={{ color: theme.palette.text.primary, fontWeight: 600 }}
-          >
-            {title}
-          </Typography>
-        </Box>
-
+        
+        <Typography
+          variant="subtitle1"
+          sx={{ color: theme.palette.text.primary, fontWeight: 600 }}
+        >
+          {title}
+        </Typography>
+        
         <Paper
           className="right-content"
           elevation={3}
@@ -98,10 +89,12 @@ function BasicTable({
             overflow: "hidden",
             bgcolor: "background.paper",
             position: "relative",
+            display: "flex",
+            gap: 1,
+            alignItems: "center"
           }}
         >
           {addSearchBox && (
-            <div>
               <TextField
                 variant="outlined"
                 size="small"
@@ -112,8 +105,7 @@ function BasicTable({
                 sx={{
                   bgcolor: "background.paper"
                 }}
-              />
-            </div>
+              />            
           )}
 
           {addButton && addButtonLink && (
@@ -126,7 +118,6 @@ function BasicTable({
         </Paper>
       </Box>
 
-      {/* <h3 style={{ margin: "0", padding: "5px 15px" }}>{title}</h3> */}
       <TableContainer
         component={Paper}
         style={{ boxShadow: "0px 13px 20px 0 #80808029" }}
@@ -152,7 +143,8 @@ function BasicTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredRows.map((row, id) => (
+            {filteredRows.length > 0 ? (
+              filteredRows.map((row, id) => (
               <TableRow key={id}>
                 <TableCell>{row.name}</TableCell>
                 <TableCell align="left">{row.trackingId}</TableCell>
@@ -190,7 +182,16 @@ function BasicTable({
                   </TableCell>
                 )}
               </TableRow>
-            ))}
+            ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={5} align="center">
+                  <Typography color="text.secondary" sx={{ py: 2 }}>
+                    No records found
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

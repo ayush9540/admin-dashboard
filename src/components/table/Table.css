@@ -5,11 +5,6 @@
 .MuiTableRow-root.MuiTableRow-head > * {
   font-weight: bold !important;
 }
-.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
-}
 
 #read_form .table {
   margin: 0px;
@@ -38,16 +33,11 @@
   align-items: center; 
   box-shadow: none !important;
   background-color: transparent;
+  padding: 8px;
 }
 
 #read_form .right-content .search-input .MuiInputBase-input {
-  padding: 4px 12px;
-}
-#read_form .right-content .search-input .MuiInputBase-input:focus-visible{
-  outline: 0 !important;
-}
-#read_form .right-content .search-input .MuiOutlinedInput-root fieldset {
-  border: none;
+  padding: 5px 12px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -71,5 +61,8 @@
   }
   .MuiBox-root.css-7wwrgi, .MuiBox-root.css-1a21q5a {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
   }
 }
