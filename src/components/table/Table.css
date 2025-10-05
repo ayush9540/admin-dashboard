@@ -45,7 +45,7 @@
     width: 100%;
     margin-top: 2rem;
   }
-  .MuiBox-root.css-7wwrgi, .MuiBox-root.css-1a21q5a {
+  #read_form .MuiBox-root.css-7wwrgi, .MuiBox-root.css-1a21q5a {
     display: flex;
     flex-direction: column;
     gap: .5rem;
