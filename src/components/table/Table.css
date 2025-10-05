@@ -45,6 +45,11 @@
     width: 100%;
     margin-top: 2rem;
   }
+  .MuiBox-root.css-7wwrgi, .MuiBox-root.css-1a21q5a {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
 }
 
 
@@ -61,8 +66,5 @@
   }
   .MuiBox-root.css-7wwrgi, .MuiBox-root.css-1a21q5a {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
   }
 }
